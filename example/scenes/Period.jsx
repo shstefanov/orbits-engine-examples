@@ -27,6 +27,11 @@ export default () => {
 			size={[50, 25, 25]}
 			color={"#999999"}
 		/>
+
+		<div className="links-block">
+			<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/scenes/Period.jsx"> Source </a>
+		</div>
+
 	</>
 
 

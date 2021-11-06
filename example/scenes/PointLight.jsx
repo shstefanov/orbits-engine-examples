@@ -13,13 +13,25 @@ export default () => {
 
 	return <>
 
+
+		<PointLight
+			position={{x: posX, y: posY, z: posZ}}
+			color={lightColor}
+			intensity={lightIntensity}
+			distance={lightDistance}
+		/>
+
+		<Box
+			size={[50, 25, 25]}
+			color={"#999999"}
+		/>
+
 		<div className="info">
 			Color: <input type="color" value={lightColor}
 				onChange={ ({target: {value}}) => {
 					setLightColor(value);
 				} }
 			/>
-
 
 			Intensity: <input 
 				min="0.2"
@@ -61,18 +73,11 @@ export default () => {
 
 
 		</div>
-		
-		<PointLight
-			position={{x: posX, y: posY, z: posZ}}
-			color={lightColor}
-			intensity={lightIntensity}
-			distance={lightDistance}
-		/>
 
-		<Box
-			size={[50, 25, 25]}
-			color={"#999999"}
-		/>
+		<div className="links-block">
+			<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/scenes/PointLight.jsx"> Source </a>
+		</div>
+
 	</>
 }
 

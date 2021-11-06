@@ -19,6 +19,22 @@ export default () => {
 
 	return <>
 
+		
+		<SpotLight
+			position={{x: posX, y: posY, z: posZ}}
+			target={{x: targetPosX, y: targetPosY, z: targetPosZ}}
+			color={lightColor}
+			intensity={lightIntensity}
+			distance={lightDistance}
+			angle={lightAngle}
+			penumbra={lightPenumbra}
+		/>
+
+		<Box
+			size={[50, 25, 25]}
+			color={"#999999"}
+		/>
+
 		<div className="info">
 			Color: <input type="color" value={lightColor}
 				onChange={ ({target: {value}}) => {
@@ -107,21 +123,11 @@ export default () => {
 			/>
 
 		</div>
-		
-		<SpotLight
-			position={{x: posX, y: posY, z: posZ}}
-			target={{x: targetPosX, y: targetPosY, z: targetPosZ}}
-			color={lightColor}
-			intensity={lightIntensity}
-			distance={lightDistance}
-			angle={lightAngle}
-			penumbra={lightPenumbra}
-		/>
 
-		<Box
-			size={[50, 25, 25]}
-			color={"#999999"}
-		/>
+		<div className="links-block">
+			<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/scenes/SpotLight.jsx"> Source </a>
+		</div>
+
 	</>
 }
 

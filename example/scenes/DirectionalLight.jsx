@@ -16,6 +16,20 @@ export default () => {
 
 	return <>
 
+
+		
+		<DirectionalLight
+			position={{x: posX, y: posY, z: posZ}}
+			target={{x: targetPosX, y: targetPosY, z: targetPosZ}}
+			color={lightColor}
+			intensity={lightIntensity}
+		/>
+
+		<Box
+			size={[50, 25, 25]}
+			color={"#999999"}
+		/>
+
 		<div className="info">
 			Color: <input type="color" value={lightColor}
 				onChange={ ({target: {value}}) => {
@@ -69,18 +83,11 @@ export default () => {
 			/>
 
 		</div>
-		
-		<DirectionalLight
-			position={{x: posX, y: posY, z: posZ}}
-			target={{x: targetPosX, y: targetPosY, z: targetPosZ}}
-			color={lightColor}
-			intensity={lightIntensity}
-		/>
 
-		<Box
-			size={[50, 25, 25]}
-			color={"#999999"}
-		/>
+		<div className="links-block">
+			<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/scenes/DirectionalLight.jsx"> Source </a>
+		</div>
+		
 	</>
 }
 

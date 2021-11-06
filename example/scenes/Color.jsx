@@ -6,6 +6,12 @@ export default () => {
 	const [color, setColor] = useState("#888888");
 
 	return <>
+		
+		<Box
+			color={color}
+			size={[50, 25, 25]}
+		/>
+		
 		<div className="info">
 			Color: <input type="color" value={color}
 				onChange={ ({target: {value}}) => {
@@ -13,11 +19,11 @@ export default () => {
 				} }
 			/>			
 		</div>
-		
-		<Box
-			color={color}
-			size={[50, 25, 25]}
-		/>
+
+		<div className="links-block">
+			<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/scenes/Color.jsx"> Source </a>
+		</div>
+
 	</>
 
 

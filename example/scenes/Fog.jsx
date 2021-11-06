@@ -9,6 +9,17 @@ export default () => {
 
 	return <>
 
+		<Fog 
+			color={fogColor}
+			near={fogNear}
+			far={fogFar}
+		/>
+
+		<Box
+			size={[50, 25, 25]}
+			color={"#999999"}
+		/>
+
 		<div className="info">
 			Color: <input type="color" value={fogColor}
 				onChange={ ({target: {value}}) => {
@@ -40,17 +51,11 @@ export default () => {
 			/>
 
 		</div>
-		
-		<Fog 
-			color={fogColor}
-			near={fogNear}
-			far={fogFar}
-		/>
 
-		<Box
-			size={[50, 25, 25]}
-			color={"#999999"}
-		/>
+		<div className="links-block">
+			<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/scenes/Fog.jsx"> Source </a>
+		</div>
+
 	</>
 }
 

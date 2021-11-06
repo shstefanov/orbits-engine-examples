@@ -1,7 +1,10 @@
 import React from "react";
-import { Audio, AudioEffect, PositionalAudio, Box } from "@orbits/engine";
-
-// rock_breaking.flac
+import {
+	Audio,
+	AudioEffect,
+	PositionalAudio,
+	Box
+} from "@orbits/engine";
 
 export default () => <>
 
@@ -33,6 +36,9 @@ export default () => <>
 		volume={0.5}
 	/>
 
+	<div className="links-block">
+		<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/scenes/Audio.jsx"> Source </a>
+	</div>
 
 </>
 

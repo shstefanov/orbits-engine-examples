@@ -8,6 +8,17 @@ export default () => {
 
 	return <>
 
+		
+		<AmbientLight 
+			color={lightColor}
+			intensity={lightIntensity}
+		/>
+
+		<Box
+			size={[50, 25, 25]}
+			color={"#999999"}
+		/>
+
 		<div className="info">
 			Color: <input type="color" value={lightColor}
 				onChange={ ({target: {value}}) => {
@@ -27,16 +38,11 @@ export default () => {
 				} }
 			/>
 		</div>
-		
-		<AmbientLight 
-			color={lightColor}
-			intensity={lightIntensity}
-		/>
 
-		<Box
-			size={[50, 25, 25]}
-			color={"#999999"}
-		/>
+		<div className="links-block">
+			<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/scenes/AmbientLight.jsx"> Source </a>
+		</div>
+
 	</>
 }
 

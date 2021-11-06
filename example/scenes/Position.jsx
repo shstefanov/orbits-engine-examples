@@ -9,6 +9,13 @@ export default () => {
 	const [posZ, setPosZ] = useState(0);
 
 	return <>
+		
+		<Box
+			position={{x: posX, y: posY, z: posZ}}
+			size={[50, 25, 25]}
+			color={"#999999"}
+		/>
+
 
 		<div className="info">
 			X: <input min="0" max="50" step="1" type="range" value={posX}
@@ -23,12 +30,10 @@ export default () => {
 				onChange={ ({target: {value}}) => setPosZ(parseInt(value)) }
 			/>
 		</div>
-		
-		<Box
-			position={{x: posX, y: posY, z: posZ}}
-			size={[50, 25, 25]}
-			color={"#999999"}
-		/>
+
+		<div className="links-block">
+			<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/scenes/Position.jsx"> Source </a>
+		</div>
 	</>
 
 

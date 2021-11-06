@@ -10,6 +10,12 @@ export default () => {
 
 	return <>
 
+		<Box
+			scale={{x: scaleX, y: scaleY, z: scaleZ}}
+			size={[50, 25, 25]}
+			color={"#999999"}
+		/>
+
 		<div className="info">
 			X: <input min="0" max="200" step="1" type="range" value={scaleX * 100}
 				onChange={ ({target: {value}}) => setScaleX(parseInt(value) / 100) }
@@ -23,13 +29,11 @@ export default () => {
 				onChange={ ({target: {value}}) => setScaleZ(parseInt(value) / 100) }
 			/>
 		</div>
-		
-		
-		<Box
-			scale={{x: scaleX, y: scaleY, z: scaleZ}}
-			size={[50, 25, 25]}
-			color={"#999999"}
-		/>
+
+		<div className="links-block">
+			<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/scenes/Scale.jsx"> Source </a>
+		</div>
+
 	</>
 
 
