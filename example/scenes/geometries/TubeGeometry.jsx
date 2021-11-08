@@ -14,13 +14,12 @@ export default () => <>
 		radialSegments={12}
 		radius={10}
 		closed={true}
-		// scale={20}
 		color={"#999999"}
 	/>
 
 	<div className="links-block">
 		<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/scenes/geometries/TubeGeometry.jsx"> Source </a>
 	</div>
-	
+
 </>
 
