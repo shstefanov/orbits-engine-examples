@@ -9,7 +9,7 @@ export default () => {
 		type: "MeshDistanceMaterial",
 
 		// Textures
-		alphaMap:        "/textures/brick/ruin_wall_03_norm.png",
+		alphaMap:  "/textures/test.png",
 		displacementMap: "/textures/test.png",
 		map:             "/textures/brick/ruin_wall_01.png",
 

@@ -19,7 +19,7 @@ export default () => {
 		// // // Textures:
 		map:       "/textures/brick/ruin_wall_01.png",
 		// normalMap: "/textures/brick/ruin_wall_03_norm.png",
-		alphaMap:  "/textures/brick/ruin_wall_03_norm.png",
+		alphaMap:  "/textures/test.png",
 		aoMap:     "/textures/brick/ruin_wall_03.png",
 		envMap:    "/textures/brick/ruin_wall_03.png",
 		lightMap:  "/textures/brick/ruin_wall_03.png",
