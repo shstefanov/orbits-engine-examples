@@ -9,7 +9,9 @@ export default () => {
 		type: "MeshDepthMaterial",
 
 		alphaMap:  "/textures/brick/ruin_wall_03_norm.png",
-		// depthPacking: "BasicDepthPacking",
+		depthPacking: "BasicDepthPacking", // LinearEncoding,	sRGBEncoding,	GammaEncoding,	RGBEEncoding,	LogLuvEncoding,	RGBM7Encoding,	RGBM16Encoding,	RGBDEncoding,	BasicDepthPacking,	RGBADepthPacking
+
+		displacementMap: "/textures/test.png",
 
 		// reflectivity: 0.4,     // Float (0 - 1)
 		// refractionRatio: 0.4,  // < 1
@@ -100,7 +102,24 @@ export default () => {
 			material={materialProps}
 		/>
 
+		<Box size={1000} color="#ffffff" material={{side: "BackSide"}} />
+
 		<div className="info">
+
+			depthPacking: 
+				<select value={materialProps.depthPacking} onChange={ e => setMaterialProps({ ...materialProps, depthPacking: e.target.value }) }>
+					<option value="LinearEncoding">LinearEncoding</option>
+					<option value="sRGBEncoding">sRGBEncoding</option>
+					<option value="GammaEncoding">GammaEncoding</option>
+					<option value="RGBEEncoding">RGBEEncoding</option>
+					<option value="LogLuvEncoding">LogLuvEncoding</option>
+					<option value="RGBM7Encoding">RGBM7Encoding</option>
+					<option value="RGBM16Encoding">RGBM16Encoding</option>
+					<option value="RGBDEncoding">RGBDEncoding</option>
+					<option value="BasicDepthPacking">BasicDepthPacking</option>
+					<option value="RGBADepthPacking">RGBADepthPacking</option>
+				</select> <span className="show-value">[{materialProps.depthPacking}]</span><br />
+
 
 {/*			reflectivity: 
 				<input value={materialProps.reflectivity} type="range" min="0" max="1" step="0.01"
