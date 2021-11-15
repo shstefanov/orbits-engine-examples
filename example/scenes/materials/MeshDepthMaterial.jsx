@@ -8,38 +8,25 @@ export default () => {
 				
 		type: "MeshDepthMaterial",
 
-		alphaMap:  "/textures/brick/ruin_wall_03_norm.png",
+		// Textures
+		alphaMap:        "/textures/brick/ruin_wall_03_norm.png",
+		displacementMap: "/textures/test.png",
+		map:             "/textures/brick/ruin_wall_01.png",
+		
+
+
 		depthPacking: "BasicDepthPacking", // LinearEncoding,	sRGBEncoding,	GammaEncoding,	RGBEEncoding,	LogLuvEncoding,	RGBM7Encoding,	RGBM16Encoding,	RGBDEncoding,	BasicDepthPacking,	RGBADepthPacking
 
-		displacementMap: "/textures/test.png",
+		displacementScale: 2,
+		displacementBias: 2,
 
-		// reflectivity: 0.4,     // Float (0 - 1)
-		// refractionRatio: 0.4,  // < 1
-
-
-		// Textures:
-		// map:       "/textures/brick/ruin_wall_01.png",
-		// normalMap: "/textures/brick/ruin_wall_03_norm.png",
-		// aoMap:     "/textures/brick/ruin_wall_03.png",
-		// envMap:    "/textures/brick/ruin_wall_03.png",
-		// lightMap:  "/textures/brick/ruin_wall_03.png",
-		// specularMap: "/textures/brick/ruin_wall_03.png",
-
-		// aoMapIntensity: 0.5,     // 0 - 1
-		// lightMapIntensity: 100,  // Float
-		// combine: "MultiplyOperation",  // MultiplyOperation, MixOperation, AddOperation
-
-		// wireframe: false,
-		// wireframeLinecap: "round", // "butt" and "square"
-		// wireframeLinejoin : "round", // "butt", "mitter"
-		// wireframeLinewidth: 2,
-
-		// format: "RGBAFormat", // "RGBAFormat", "RGBFormat"
+		fog: true,
 
 
+		wireframe: false,
+		wireframeLinewidth: 2,
 
-
-
+	
 		// Common for all materials
 
 		// https://threejs.org/docs/?q=MeshBasic#api/en/materials/Material
@@ -120,58 +107,32 @@ export default () => {
 					<option value="RGBADepthPacking">RGBADepthPacking</option>
 				</select> <span className="show-value">[{materialProps.depthPacking}]</span><br />
 
+			displacementScale: 
+				<input value={materialProps.displacementScale} type="range" min="0" max="20" step="0.01"
+					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, displacementScale: parseFloat(value)}); } }
+				/> <span className="show-value">[{materialProps.displacementScale}]</span><br />
 
-{/*			reflectivity: 
-				<input value={materialProps.reflectivity} type="range" min="0" max="1" step="0.01"
-					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, reflectivity: parseFloat(value)}); } }
-				/> <span className="show-value">[{materialProps.reflectivity}]</span><br />
-*/}
-{/*			refractionRatio: 
-				<input value={materialProps.refractionRatio} type="range" min="0" max="0.99" step="0.01"
-					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, refractionRatio: parseFloat(value)}); } }
-				/> <span className="show-value">[{materialProps.refractionRatio}]</span><br />
-*/}
-{/*			aoMapIntensity: 
-				<input value={materialProps.aoMapIntensity} type="range" min="0" max="0.99" step="0.01"
-					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, aoMapIntensity: parseFloat(value)}); } }
-				/> <span className="show-value">[{materialProps.aoMapIntensity}]</span><br />
-*/}
-{/*			lightMapIntensity: 
-				<input value={materialProps.lightMapIntensity} type="range" min="0" max="100" step="1"
-					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, lightMapIntensity: parseFloat(value)}); } }
-				/> <span className="show-value">[{materialProps.lightMapIntensity}]</span><br />
-*/}
-{/*			combine: 
-				<select value={materialProps.combine} onChange={ e => setMaterialProps({ ...materialProps, combine: e.target.value }) }>
-					<option value="MultiplyOperation">MultiplyOperation</option>
-					<option value="MixOperation">MixOperation</option>
-					<option value="AddOperation">AddOperation</option>
-				</select> <span className="show-value">[{materialProps.combine}]</span><br />
-*/}
-{/*			wireframe: 
+			displacementBias: 
+				<input value={materialProps.displacementBias} type="range" min="0" max="20" step="0.01"
+					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, displacementBias: parseFloat(value)}); } }
+				/> <span className="show-value">[{materialProps.displacementBias}]</span><br />
+
+			fog: 
+				<input checked={materialProps.fog} type="checkbox"
+					onChange={ e => setMaterialProps({...materialProps, fog: e.target.checked }) }
+				/> <span className="show-value">[{materialProps.fog + ''}]</span><br />
+
+
+			wireframe: 
 				<input checked={materialProps.wireframe} type="checkbox"
 					onChange={ e => setMaterialProps({...materialProps, wireframe: e.target.checked }) }
 				/> <span className="show-value">[{materialProps.wireframe + ''}]</span><br />
-*/}
-{/*			wireframeLinecap: 
-				<select value={materialProps.combine} onChange={ e => setMaterialProps({ ...materialProps, wireframeLinecap: e.target.value }) }>
-					<option value="round">round</option>
-					<option value="butt">butt</option>
-					<option value="square">square</option>
-				</select> <span className="show-value">[{materialProps.wireframeLinecap}]</span><br />
-*/}
-{/*			wireframeLinejoin: 
-				<select value={materialProps.combine} onChange={ e => setMaterialProps({ ...materialProps, wireframeLinejoin: e.target.value }) }>
-					<option value="round">round</option>
-					<option value="butt">butt</option>
-					<option value="square">square</option>
-				</select> <span className="show-value">[{materialProps.wireframeLinejoin}]</span><br />
-*/}
-{/*			wireframeLinewidth: 
+
+			wireframeLinewidth: 
 				<input value={materialProps.wireframeLinewidth} type="range" min="0" max="20" step="0.01"
 					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, wireframeLinewidth: parseFloat(value)}); } }
 				/> <span className="show-value">[{materialProps.wireframeLinewidth}]</span><br />
-*/}
+
 			
 			<CommonMaterialPropertiesForm state={materialProps} setState={setMaterialProps} />
 
