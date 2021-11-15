@@ -17,11 +17,53 @@ export default () => <>
 	}}>
 		<li><Link className="nowrap" to="/basics">       Basics         </Link> </li>
 
+
 		<hr/>
 		<h2>Mouse Interaction:</h2>
 
 		<li><Link className="nowrap" to="/mouse-events"> Mouse Events   </Link> </li>
 		<li><Link className="nowrap" to="/hover">        Hover          </Link> </li>
+
+		<hr/>
+		<h2>CameraControls:</h2>
+		<li><Link className="nowrap" to="/camera-controls">        Controls scope       </Link></li>
+
+		<hr/>
+		<h2>Cursor:</h2>
+		<li><Link className="nowrap" to="/cursor">                Cursor               </Link> </li>
+
+		<hr/>
+		<h2>Fog:</h2>
+		<li><Link className="nowrap" to="/fog"> Fog  </Link> </li>
+
+		<hr/>
+		<h2>Audio:</h2>
+		<li><Link className="nowrap" to="/audio"> Audio  </Link> </li>
+
+
+		<hr/>
+		<h2>Materials:</h2>
+
+		<li><Link className="nowrap" to="/line-basic-material">    LineBasicMaterial    </Link></li>
+		<li><Link className="nowrap" to="/line-dashed-material">   LineDashedMaterial   </Link></li>
+		<li><Link className="nowrap" to="/mesh-basic-material">    MeshBasicMaterial    </Link></li>
+		<li><Link className="nowrap" to="/mesh-depth-material">    MeshDepthMaterial    </Link></li>
+		<li><Link className="nowrap" to="/mesh-distance-material"> MeshDistanceMaterial </Link></li>
+		<li><Link className="nowrap" to="/mesh-lambert-material">  MeshLambertMaterial  </Link></li>
+		<li><Link className="nowrap" to="/mesh-matcap-material">   MeshMatcapMaterial   </Link></li>
+		<li><Link className="nowrap" to="/mesh-normal-material">   MeshNormalMaterial   </Link></li>
+		<li><Link className="nowrap" to="/mesh-phong-material">    MeshPhongMaterial    </Link></li>
+		<li><Link className="nowrap" to="/mesh-physical-material"> MeshPhysicalMaterial </Link></li>
+		<li><Link className="nowrap" to="/mesh-standart-material"> MeshStandardMaterial </Link></li>
+		<li><Link className="nowrap" to="/mesh-toon-material">     MeshToonMaterial     </Link></li>
+		<li><Link className="nowrap" to="/points-material">        PointsMaterial       </Link></li>
+		<li><Link className="nowrap" to="/raw-shader-material">    RawShaderMaterial    </Link></li>
+		<li><Link className="nowrap" to="/shader-material">        ShaderMaterial       </Link></li>
+		<li><Link className="nowrap" to="/shadow-material">        ShadowMaterial       </Link></li>
+		<li><Link className="nowrap" to="/sprite-material">        SpriteMaterial       </Link></li>
+
+
+
 
 		<hr/>
 		<h2>Transforms:</h2>
@@ -46,13 +88,7 @@ export default () => <>
 		<li><Link className="nowrap" to="/directional-light"> Directional Light  </Link> </li>
 
 
-		<hr/>
-		<h2>Fog:</h2>
-		<li><Link className="nowrap" to="/fog"> Fog  </Link> </li>
 
-		<hr/>
-		<h2>Audio:</h2>
-		<li><Link className="nowrap" to="/audio"> Audio  </Link> </li>
 
 		<hr/>
 		<h2>Loaders:</h2>
@@ -60,7 +96,7 @@ export default () => <>
 
 		<hr/>
 		<h2>Geometries:</h2>
-
+		<li><Link className="nowrap" to="/line-geometry">         LineGeometry         </Link> </li>
 		<li><Link className="nowrap" to="/box-geometry">          BoxGeometry          </Link> </li>
 		<li><Link className="nowrap" to="/circle-geometry">       CircleGeometry       </Link> </li>
 		<li><Link className="nowrap" to="/cone-geometry">         ConeGeometry         </Link> </li>
@@ -79,6 +115,9 @@ export default () => <>
 		<li><Link className="nowrap" to="/torus-geometry">        TorusGeometry        </Link> </li>
 		<li><Link className="nowrap" to="/torusknot-geometry">    TorusKnotGeometry    </Link> </li>
 		<li><Link className="nowrap" to="/tube-geometry">         TubeGeometry         </Link> </li>
+		<li><Link className="nowrap" to="/text-geometry">         TextGeometry         </Link> </li>
+
+
 
 	</ul>
 

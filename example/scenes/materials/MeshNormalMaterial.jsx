@@ -5,8 +5,14 @@ export default () => <>
 
 
 	<Box
-		size={ [ 50, 25, 12.5 ] }
-		material={ { color: "#aaaa00" } }
+		size={[50, 25, 25]}
+		color={"#999999"}
+	/>
+
+	<Box
+		material="/materials/basic-green.json"
+		size={[50, 25, 25]}
+		position={{x: 0, y: - 150, z: 0}}
 	/>
 
 	<div className="links-block">

@@ -8,19 +8,22 @@ export default () => {
 	return <>
 		
 		<Box
+			material={{transparent: true}}
 			period={({
-				period: 1500,
+				period: 4500,
 				timing_function: "EASE_IN_SINE",
 				from: {
+					opacity: 0.9,
 					color:    "#0000aa",
 					position: { x: 0, y: 0, z: 0 },
 					rotation: { x: 0, y: 0, z: 0 },
 					scale:    { x: 1, y: 1, z: 1 },
 				},
 				to: {
+					opacity: 0.1,
 					color:    "#aaaa00",
 					position: { x: 300, y: 300, z: 0 },
-					rotation: { x: 10, y: 0, z: 0 },
+					rotation: { x: 30, y: 0, z: 0 },
 					scale:    { x: 2, y: 2, z: 16 },
 				}
 			})}

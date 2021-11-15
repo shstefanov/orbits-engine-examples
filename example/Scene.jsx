@@ -6,11 +6,23 @@ import SkyBox from "./SkyBox";
 
 
 export default ({children}) => <OrbitsScene
+	defaultCursor="/images/cursor.png"
 	renderInterval={10} // optional, default: 40 (ms)
+
+	rotation={{x: Math.PI / 2}}
+	
 	// onUpdateControls={ e => console.log("onUpdateControls", e.target.distance) }
-	controlsOptions={{
-		distance: 150
+	cameraControls={{
+		distance: 150,
+		polarAngle: Math.PI / 2,
+		azimuthAngle: 0,
+		zoom: 0,
 	}}
+
+	// TODO - fix issue
+	// rendererOptions={{
+	// 	antialias: true,
+	// }}
 	>
 
 		<SkyBox />

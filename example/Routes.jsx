@@ -7,6 +7,29 @@ import {
 } from "react-router-dom";
 
 import Basics           from "./scenes/Basics"
+
+
+import LineBasicMaterial from "./scenes/materials/LineBasicMaterial.jsx"
+import LineDashedMaterial from "./scenes/materials/LineDashedMaterial.jsx"
+import MeshBasicMaterial from "./scenes/materials/MeshBasicMaterial.jsx"
+import MeshDepthMaterial from "./scenes/materials/MeshDepthMaterial.jsx"
+import MeshDistanceMaterial from "./scenes/materials/MeshDistanceMaterial.jsx"
+import MeshLambertMaterial from "./scenes/materials/MeshLambertMaterial.jsx"
+import MeshMatcapMaterial from "./scenes/materials/MeshMatcapMaterial.jsx"
+import MeshNormalMaterial from "./scenes/materials/MeshNormalMaterial.jsx"
+import MeshPhongMaterial from "./scenes/materials/MeshPhongMaterial.jsx"
+import MeshPhysicalMaterial from "./scenes/materials/MeshPhysicalMaterial.jsx"
+import MeshStandardMaterial from "./scenes/materials/MeshStandardMaterial.jsx"
+import MeshToonMaterial from "./scenes/materials/MeshToonMaterial.jsx"
+import PointsMaterial from "./scenes/materials/PointsMaterial.jsx"
+import RawShaderMaterial from "./scenes/materials/RawShaderMaterial.jsx"
+import ShaderMaterial from "./scenes/materials/ShaderMaterial.jsx"
+import ShadowMaterial from "./scenes/materials/ShadowMaterial.jsx"
+import SpriteMaterial from "./scenes/materials/SpriteMaterial.jsx"
+
+
+
+
 import MouseEvents      from "./scenes/MouseEvents"
 import Hover            from "./scenes/Hover"
 
@@ -29,7 +52,7 @@ import Fog  from "./scenes/Fog"
 
 import ObjLoader  from "./scenes/ObjLoader"
 
-
+import LineGeometry from "./scenes/geometries/LineGeometry"
 import BoxGeometry from "./scenes/geometries/BoxGeometry"
 import CircleGeometry from "./scenes/geometries/CircleGeometry"
 import ConeGeometry from "./scenes/geometries/ConeGeometry"
@@ -48,8 +71,13 @@ import TetrahedronGeometry from "./scenes/geometries/TetrahedronGeometry"
 import TorusGeometry from "./scenes/geometries/TorusGeometry"
 import TorusKnotGeometry from "./scenes/geometries/TorusKnotGeometry"
 import TubeGeometry from "./scenes/geometries/TubeGeometry"
+import TextGeometry from "./scenes/geometries/TextGeometry"
 
 import Audio from "./scenes/Audio"
+
+import Cursor from "./scenes/Cursor"
+
+import CameraControls from "./scenes/CameraControls"
 
 
 
@@ -60,6 +88,27 @@ export default ({children}) => <Router>
 	<Switch>
 
 		<Route path="/basics">       <Basics      /> </Route>
+		
+		<Route path="/line-basic-material">    <LineBasicMaterial />    </Route>
+		<Route path="/line-dashed-material">   <LineDashedMaterial />   </Route>
+		<Route path="/mesh-basic-material">    <MeshBasicMaterial />    </Route>
+		<Route path="/mesh-depth-material">    <MeshDepthMaterial />    </Route>
+		<Route path="/mesh-distance-material"> <MeshDistanceMaterial /> </Route>
+		<Route path="/mesh-lambert-material">  <MeshLambertMaterial />  </Route>
+		<Route path="/mesh-matcap-material">   <MeshMatcapMaterial />   </Route>
+		<Route path="/mesh-normal-material">   <MeshNormalMaterial />   </Route>
+		<Route path="/mesh-phong-material">    <MeshPhongMaterial />    </Route>
+		<Route path="/mesh-physical-material"> <MeshPhysicalMaterial /> </Route>
+		<Route path="/mesh-standart-material"> <MeshStandardMaterial /> </Route>
+		<Route path="/mesh-toon-material">     <MeshToonMaterial />     </Route>
+		<Route path="/points-material">        <PointsMaterial />       </Route>
+		<Route path="/raw-shader-material">    <RawShaderMaterial />    </Route>
+		<Route path="/shader-material">        <ShaderMaterial />       </Route>
+		<Route path="/shadow-material">        <ShadowMaterial />       </Route>
+		<Route path="/sprite-material">        <SpriteMaterial />       </Route>
+
+		<Route path="/camera-controls">        <CameraControls />       </Route>
+
 		<Route path="/mouse-events"> <MouseEvents /> </Route>
 		<Route path="/hover">        <Hover       /> </Route>
 		<Route path="/position">     <Position    /> </Route>
@@ -81,7 +130,7 @@ export default ({children}) => <Router>
 
 		<Route path="/obj-loader"><ObjLoader /> </Route>
 
-
+		<Route path="/line-geometry">          <LineGeometry />         </Route>
 		<Route path="/box-geometry">           <BoxGeometry />          </Route>
 		<Route path="/circle-geometry">        <CircleGeometry />       </Route>
 		<Route path="/cone-geometry">          <ConeGeometry />         </Route>
@@ -100,6 +149,9 @@ export default ({children}) => <Router>
 		<Route path="/torus-geometry">         <TorusGeometry />        </Route>
 		<Route path="/torusknot-geometry">     <TorusKnotGeometry />    </Route>
 		<Route path="/tube-geometry">          <TubeGeometry />         </Route>
+		<Route path="/text-geometry">          <TextGeometry />         </Route>
+
+		<Route path="/cursor">                 <Cursor />               </Route>
 
 	</Switch>
 </Router>
