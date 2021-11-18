@@ -3,6 +3,14 @@ import { Box, CameraControls } from "@orbits/engine";
 
 
 export default () => {
+
+	// TODO
+
+	const [targetDebounce, setTargetDebounce] = useState(Date.now());
+
+
+	const [ target, setTarget ] = useState([0, 0, 0]);
+
 	const [enabled, setenabled] = useState(true);
 	const [boundaryEnclosesCamera, setboundaryEnclosesCamera] = useState(false);
 	const [verticalDragToForward, setverticalDragToForward] = useState(false);
@@ -32,10 +40,12 @@ export default () => {
 	const [dollySpeed, setdollySpeed] = useState(0.2);
 	const [truckSpeed, settruckSpeed] = useState(2.0);
 
-
 	return <>
 
 		<CameraControls 
+
+			// TODO
+			target={target}
 			
 			distance={distance}
 			polarAngle={polarAngle}
@@ -44,7 +54,6 @@ export default () => {
 			zoom={zoom}
 			minZoom={minZoom}
 			maxZoom={maxZoom}
-
 
 			enabled={enabled}
 			boundaryEnclosesCamera={boundaryEnclosesCamera}
@@ -70,6 +79,15 @@ export default () => {
 				setdistance(e.target.distance);
 				setPolarAngle(e.target.polarAngle);
 				setAzimuthAngle(e.target.azimuthAngle);
+				const debounceDelta = Date.now() - targetDebounce;
+				// TODO - get back target without error
+				// if(debounceDelta > 300){
+				// 	const target = e.target.getTarget();
+				// 	const {x,y,z} = e.target.getTarget();
+				// 	if( target[0] !== x || target[1] !== y || target[2] !== z ) setTarget([x,y,z]);
+				// 	setTargetDebounce(Date.now());
+				// }
+
 			}}
 
 			/*
@@ -100,13 +118,19 @@ export default () => {
 
 		<Box
 			size={[50, 25, 25]}
-			color={"#999999"}
+			material={{
+				type:   "MeshBasicMaterial",
+				colors: { color: "#999999" },
+			}}
 		/>
 		
 		<Box
 			position={{x: 50, y: 25, z: 25}}
 			size={[50, 25, 25]}
-			color={"#999999"}
+			material={{
+				type:   "MeshBasicMaterial",
+				colors: { color: "#999999" },
+			}}
 		/>
 
 
@@ -124,9 +148,14 @@ export default () => {
 
 			<br />
 
+
 			{[
 				// NAME                   VALUE                  SETTER                       MIN           MAX          STEP
 
+				// TODO
+				["targetX",              target[0],          x => setTimeout(setTarget([x, target[1], target[2]]), 0),  -100,         100,         1    ],
+				["targetY",              target[1],          y => setTimeout(setTarget([target[0], y, target[2]]), 0),  -100,         100,         1    ],
+				["targetZ",              target[2],          z => setTimeout(setTarget([target[0], target[1], z]), 0),  -100,         100,         1    ],
 
 				["distance",              distance,              setdistance,                 minDistance,          maxDistance,  1       ],
 				["maxDistance",           maxDistance,           setmaxDistance,              300,          500,         10   ],
@@ -136,17 +165,13 @@ export default () => {
 				["minZoom",               minZoom,               setMinZoom,                  1,            10,         0.01  ],
 				["maxZoom",               maxZoom,               setMaxZoom,                  1,            10,         0.01  ],
 
-
 				["polarAngle",            polarAngle,            setPolarAngle,               minPolarAngle, maxPolarAngle, 0.01 ],
 				["minPolarAngle",         minPolarAngle,         setminPolarAngle,            0,            Math.PI,     0.01 ],
 				["maxPolarAngle",         maxPolarAngle,         setmaxPolarAngle,            0,            Math.PI,     0.01 ],
-				
 
 				["azimuthAngle",          azimuthAngle,          setAzimuthAngle,             minAzimuthAngle, maxAzimuthAngle, 0.01 ],
 				["minAzimuthAngle",       minAzimuthAngle,       setminAzimuthAngle,          -100, 100, 0.01 ],
 				["maxAzimuthAngle",       maxAzimuthAngle,       setmaxAzimuthAngle,          -100, 100, 0.01 ],
-				
-
 
 				["boundaryFriction",      boundaryFriction,      setboundaryFriction,         0,            100,         1    ],
 				["dampingFactor",         dampingFactor,         setdampingFactor,            0,            100,         1    ],

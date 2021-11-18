@@ -47,12 +47,18 @@ https://opengameart.org/content/rockbreaking
 
 
 
-
-
-TODO:
+DONE:
 +LineGeometry
 +<CameraControls ... />
++<Point ...>
++<Points points=...>
++PointsMaterial
++RawShaderMaterial
++ShadowMaterial
 
-Opacity
-Materials...
+TODO:
+
+ShaderMaterial
+SpriteMaterial
+<Sprite ...>
 <Timer ... />

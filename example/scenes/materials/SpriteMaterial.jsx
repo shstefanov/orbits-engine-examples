@@ -1,26 +1,132 @@
-import React from "react";
-import { Box } from "@orbits/engine";
+import React, {useState} from "react";
+import { Sprite } from "@orbits/engine";
+import CommonMaterialPropertiesForm from "./_CommonMaterialPropertiesForm.jsx";
 
-export default () => <>
+export default () => {
+
+	const [ materialProps, setMaterialProps ] = useState({
+				
+		type: "SpriteMaterial", 
+		
+		textures: {
+			map:       "/textures/sprite.png",
+			alphaMap:  "/textures/brick/ruin_wall_03_height.png",
+		},
+		
+		colors: {color: "#999999"},
+		
+		constants: {
+			blending: "NormalBlending", // NoBlending, NormalBlending, AdditiveBlending, SubtractiveBlending, MultiplyBlending, CustomBlending
+			blendDst: "OneMinusSrcAlphaFactor",   // ZeroFactor,	OneFactor,	SrcColorFactor,	OneMinusSrcColorFactor,	SrcAlphaFactor,	OneMinusSrcAlphaFactor,	DstAlphaFactor,	OneMinusDstAlphaFactor,	DstColorFactor,	OneMinusDstColorFactor
+			blendSrc: "SrcAlphaFactor", // ZeroFactor,	OneFactor,	SrcColorFactor,	OneMinusSrcColorFactor,	SrcAlphaFactor,	OneMinusSrcAlphaFactor,	DstAlphaFactor,	OneMinusDstAlphaFactor,	DstColorFactor,	OneMinusDstColorFactor,	SrcAlphaSaturateFactor
+			blendSrcAlpha: "SrcAlphaFactor", // ZeroFactor,	OneFactor,	SrcColorFactor,	OneMinusSrcColorFactor,	SrcAlphaFactor,	OneMinusSrcAlphaFactor,	DstAlphaFactor,	OneMinusDstAlphaFactor,	DstColorFactor,	OneMinusDstColorFactor,	SrcAlphaSaturateFactor
+			depthFunc: "LessEqualDepth", // NeverDepth, AlwaysDepth, EqualDepth, LessDepth, LessEqualDepth, GreaterEqualDepth, GreaterDepth, NotEqualDepth,
+			stencilFunc: "AlwaysStencilFunc", // NeverStencilFunc, LessStencilFunc, EqualStencilFunc, LessEqualStencilFunc, GreaterStencilFunc, NotEqualStencilFunc, GreaterEqualStencilFunc, AlwaysStencilFunc, LineBasicMaterial
+			stencilFail: "ZeroStencilOp",  // ZeroStencilOp,	KeepStencilOp,	ReplaceStencilOp,	IncrementStencilOp,	DecrementStencilOp,	IncrementWrapStencilOp,	DecrementWrapStencilOp,	InvertStencilOp
+			stencilZFail: "ZeroStencilOp", // ZeroStencilOp,	KeepStencilOp,	ReplaceStencilOp,	IncrementStencilOp,	DecrementStencilOp,	IncrementWrapStencilOp,	DecrementWrapStencilOp,	InvertStencilOp
+			stencilZPass: "KeepStencilOp", // ZeroStencilOp,	KeepStencilOp,	ReplaceStencilOp,	IncrementStencilOp,	DecrementStencilOp,	IncrementWrapStencilOp,	DecrementWrapStencilOp,	InvertStencilOp
+			shadowSide: "FrontSide", // BackSide, DoubleSide
+			side: "FrontSide", // BackSide, DoubleSide
+		},
+
+		values: {
+			sizeAttenuation: false,
+			rotation: Math.PI * 0.93,
+
+			// Common for all materials
+			// https://threejs.org/docs/?q=MeshBasic#api/en/materials/Material
+
+			transparent: true,
+			opacity: 1,
+			alphaTest: 0, //   0 - 1
+			// alphaToCoverage: 0.2, // Float
+			
+
+			blendDstAlpha: 2,
+			blendEquation: 2,
+			blendEquationAlpha: 2,
+			clipIntersection: false,
+			clippingPlanes: [], // TODO - array of THREE.Plane objects
+			clipShadows: true,
+			colorWrite: true,
+			depthTest: true,
+			depthWrite: true,
+			stencilWrite: true,
+			stencilWriteMask: 0xff, // bitmask
+			stencilRef: 0, // Integer
+			stencilFuncMask: 0xff, // bitmask
 
 
-	<Box
-		size={[50, 25, 25]}
-		color={"#999999"}
-	/>
+			fog: true,
+			// needsUpdate: true, // Handled internbally
 
-	<Box
-		material="/materials/basic-green.json"
-		size={[50, 25, 25]}
-		position={{x: 0, y: - 150, z: 0}}
-	/>
+			polygonOffset: true,
+			polygonOffsetFactor: 2, // Integer
+			polygonOffsetUnits: 2,  // Integer
+			precision: "lowp",      // "highp", "mediump" or "lowp"
+			premultipliedAlpha: true,
+			dithering : true,
+			
 
-	<div className="links-block">
-		<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/Scene.jsx"> Scene Source </a>
-		<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/scenes/Basics.jsx"> Object Source </a>
-	</div>
+			toneMapped: true,
+			vertexColors: false,
+			visible: true,
 
-</>
+		},
+	});
+
+
+	return <>
+		
+		<Sprite
+			// Geometry properties: none
+			
+			// Material:
+			material={materialProps}
+			
+			// Mesh properties:
+			scale={0.1}
+			position={{ x: 0, y: 0, z: 0 }}
+		/>
+
+		<div className="info">
+			color: 
+				<input type="color" value={materialProps.colors.color}
+					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, colors: {
+						...materialProps.colors,
+						color: value
+					}}); } }
+				/> <span className="show-value">[{materialProps.colors.color}]</span><br />
+
+			rotation: 
+				<input value={materialProps.values.rotation} type="range" min="0" max={Math.PI * 2} step="0.01"
+					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, values: {
+						...materialProps.values,
+						rotation: parseFloat(value)
+					}}); } }
+				/> <span className="show-value">[{materialProps.values.rotation}]</span><br />
+			
+			sizeAttenuation: 
+				<input checked={materialProps.values.sizeAttenuation} type="checkbox"
+					onChange={ e => setMaterialProps({...materialProps, values: {
+						...materialProps.values,
+						sizeAttenuation: e.target.checked
+					} }) }
+				/> <span className="show-value">[{materialProps.values.sizeAttenuation + ''}]</span><br />
+
+
+			<CommonMaterialPropertiesForm state={materialProps} setState={setMaterialProps} />
+		
+		</div>
+
+		<div className="links-block">
+			<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/scenes/materials/SpriteMaterial.jsx"> Source </a>
+		</div>
+
+	</>
+
+
+}
 
 
 

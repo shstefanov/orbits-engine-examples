@@ -4,9 +4,12 @@ import { Octahedron } from "@orbits/engine";
 export default () => <>
 	
 	<Octahedron
+		// Geometry properties:
 		radius={30}
 		detail={0}
-		color={"#999999"}
+
+		// Material:
+		material={{type: "MeshPhongMaterial", colors: {color: "#999999"}}}
 	/>
 
 	<div className="links-block">

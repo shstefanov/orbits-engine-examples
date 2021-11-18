@@ -9,83 +9,95 @@ export default () => {
 		type: "MeshBasicMaterial",
 		
 
-		color: "#ff8888",
 
 
-		reflectivity: 0.4,     // Float (0 - 1)
-		refractionRatio: 0.4,  // < 1
+		// Textures:
+		textures: {
+			map:         "/textures/brick/ruin_wall_01.png",
+			alphaMap:    "/textures/test.png",
+			aoMap:       "/textures/brick/ruin_wall_03.png",
+			envMap:      "/textures/brick/ruin_wall_03.png",
+			lightMap:    "/textures/brick/ruin_wall_03.png",
+			specularMap: "/textures/brick/ruin_wall_03.png",
+		},
+
+		constants: {
+			combine: "MultiplyOperation",  // MultiplyOperation, MixOperation, AddOperation
+			blending: "NormalBlending", // NoBlending, NormalBlending, AdditiveBlending, SubtractiveBlending, MultiplyBlending, CustomBlending
+			blendDst: "OneMinusSrcAlphaFactor",   // ZeroFactor,	OneFactor,	SrcColorFactor,	OneMinusSrcColorFactor,	SrcAlphaFactor,	OneMinusSrcAlphaFactor,	DstAlphaFactor,	OneMinusDstAlphaFactor,	DstColorFactor,	OneMinusDstColorFactor
+			blendSrc: "SrcAlphaFactor", // ZeroFactor,	OneFactor,	SrcColorFactor,	OneMinusSrcColorFactor,	SrcAlphaFactor,	OneMinusSrcAlphaFactor,	DstAlphaFactor,	OneMinusDstAlphaFactor,	DstColorFactor,	OneMinusDstColorFactor,	SrcAlphaSaturateFactor
+			blendSrcAlpha: "SrcAlphaFactor", // ZeroFactor,	OneFactor,	SrcColorFactor,	OneMinusSrcColorFactor,	SrcAlphaFactor,	OneMinusSrcAlphaFactor,	DstAlphaFactor,	OneMinusDstAlphaFactor,	DstColorFactor,	OneMinusDstColorFactor,	SrcAlphaSaturateFactor
+			depthFunc: "LessEqualDepth", // NeverDepth, AlwaysDepth, EqualDepth, LessDepth, LessEqualDepth, GreaterEqualDepth, GreaterDepth, NotEqualDepth,
+			stencilFunc: "AlwaysStencilFunc", // NeverStencilFunc, LessStencilFunc, EqualStencilFunc, LessEqualStencilFunc, GreaterStencilFunc, NotEqualStencilFunc, GreaterEqualStencilFunc, AlwaysStencilFunc, LineBasicMaterial
+			stencilFail: "ZeroStencilOp",  // ZeroStencilOp,	KeepStencilOp,	ReplaceStencilOp,	IncrementStencilOp,	DecrementStencilOp,	IncrementWrapStencilOp,	DecrementWrapStencilOp,	InvertStencilOp
+			stencilZFail: "ZeroStencilOp", // ZeroStencilOp,	KeepStencilOp,	ReplaceStencilOp,	IncrementStencilOp,	DecrementStencilOp,	IncrementWrapStencilOp,	DecrementWrapStencilOp,	InvertStencilOp
+			stencilZPass: "KeepStencilOp", // ZeroStencilOp,	KeepStencilOp,	ReplaceStencilOp,	IncrementStencilOp,	DecrementStencilOp,	IncrementWrapStencilOp,	DecrementWrapStencilOp,	InvertStencilOp
+			shadowSide: "FrontSide", // BackSide, DoubleSide
+			side: "FrontSide", // BackSide, DoubleSide
+		},
+
+		colors: {
+			color: "#ff8888",
+		},
+
+		vectors2: {
+
+		},
+
+		values: {
+			reflectivity: 0.4,     // Float (0 - 1)
+			refractionRatio: 0.4,  // < 1
+			aoMapIntensity: 0.5,     // 0 - 1
+			lightMapIntensity: 100,  // Float
+
+			wireframe: false,
+			wireframeLinecap: "round", // "butt" and "square"
+			wireframeLinejoin : "round", // "butt", "mitter"
+			wireframeLinewidth: 2,
 
 
-		// // // Textures:
-		map:       "/textures/brick/ruin_wall_01.png",
-		// normalMap: "/textures/brick/ruin_wall_03_norm.png",
-		alphaMap:  "/textures/test.png",
-		aoMap:     "/textures/brick/ruin_wall_03.png",
-		envMap:    "/textures/brick/ruin_wall_03.png",
-		lightMap:  "/textures/brick/ruin_wall_03.png",
-		specularMap: "/textures/brick/ruin_wall_03.png",
+			// Common for all materials
+			// https://threejs.org/docs/?q=MeshBasic#api/en/materials/Material
+			transparent: false,
+			opacity: 0.95,
+			alphaTest: 0.5, //   0 - 1
+			alphaToCoverage: 0.2, // Float
+			
 
-		aoMapIntensity: 0.5,     // 0 - 1
-		lightMapIntensity: 100,  // Float
-		combine: "MultiplyOperation",  // MultiplyOperation, MixOperation, AddOperation
+			blendDstAlpha: 2,
+			blendEquation: 2,
+			blendEquationAlpha: 2,
+			clipIntersection: false,
+			clippingPlanes: [], // TODO - array of THREE.Plane objects
+			clipShadows: true,
+			colorWrite: true,
+			depthTest: true,
+			depthWrite: true,
+			stencilWrite: true,
+			stencilWriteMask: 0xff, // bitmask
+			stencilRef: 0, // Integer
+			stencilFuncMask: 0xff, // bitmask
 
-		wireframe: false,
-		wireframeLinecap: "round", // "butt" and "square"
-		wireframeLinejoin : "round", // "butt", "mitter"
-		wireframeLinewidth: 2,
+			fog: true,
+
+			polygonOffset: true,
+			polygonOffsetFactor: 2, // Integer
+			polygonOffsetUnits: 2,  // Integer
+			precision: "lowp",      // "highp", "mediump" or "lowp"
+			premultipliedAlpha: true,
+			dithering : true,
+			
+
+			toneMapped: true,
+			vertexColors: false,
+			visible: true,
+
+		},
 
 
-		// Common for all materials
-
-		// https://threejs.org/docs/?q=MeshBasic#api/en/materials/Material
 
 
-		transparent: false,
-		opacity: 0.95,
-		alphaTest: 0.5, //   0 - 1
-		alphaToCoverage: 0.2, // Float
-		
 
-		blending: "NoBlending", // NoBlending, NormalBlending, AdditiveBlending, SubtractiveBlending, MultiplyBlending, CustomBlending
-		blendDst: "OneMinusSrcAlphaFactor",   // ZeroFactor,	OneFactor,	SrcColorFactor,	OneMinusSrcColorFactor,	SrcAlphaFactor,	OneMinusSrcAlphaFactor,	DstAlphaFactor,	OneMinusDstAlphaFactor,	DstColorFactor,	OneMinusDstColorFactor
-		blendDstAlpha: 2,
-		blendEquation: 2,
-		blendEquationAlpha: 2,
-		blendSrc: "SrcAlphaFactor", // ZeroFactor,	OneFactor,	SrcColorFactor,	OneMinusSrcColorFactor,	SrcAlphaFactor,	OneMinusSrcAlphaFactor,	DstAlphaFactor,	OneMinusDstAlphaFactor,	DstColorFactor,	OneMinusDstColorFactor,	SrcAlphaSaturateFactor
-		blendSrcAlpha: "SrcAlphaFactor", // ZeroFactor,	OneFactor,	SrcColorFactor,	OneMinusSrcColorFactor,	SrcAlphaFactor,	OneMinusSrcAlphaFactor,	DstAlphaFactor,	OneMinusDstAlphaFactor,	DstColorFactor,	OneMinusDstColorFactor,	SrcAlphaSaturateFactor
-		clipIntersection: false,
-		clippingPlanes: [], // TODO - array of THREE.Plane objects
-		clipShadows: true,
-		colorWrite: true,
-		depthFunc: "LessEqualDepth", // NeverDepth, AlwaysDepth, EqualDepth, LessDepth, LessEqualDepth, GreaterEqualDepth, GreaterDepth, NotEqualDepth,
-		depthTest: true,
-		depthWrite: true,
-		stencilWrite: true,
-		stencilWriteMask: 0xff, // bitmask
-		stencilFunc: "AlwaysStencilFunc", // NeverStencilFunc, LessStencilFunc, EqualStencilFunc, LessEqualStencilFunc, GreaterStencilFunc, NotEqualStencilFunc, GreaterEqualStencilFunc, AlwaysStencilFunc, LineBasicMaterial
-		stencilRef: 0, // Integer
-		stencilFuncMask: 0xff, // bitmask
-
-		stencilFail: "ZeroStencilOp",  // ZeroStencilOp,	KeepStencilOp,	ReplaceStencilOp,	IncrementStencilOp,	DecrementStencilOp,	IncrementWrapStencilOp,	DecrementWrapStencilOp,	InvertStencilOp
-		stencilZFail: "ZeroStencilOp", // ZeroStencilOp,	KeepStencilOp,	ReplaceStencilOp,	IncrementStencilOp,	DecrementStencilOp,	IncrementWrapStencilOp,	DecrementWrapStencilOp,	InvertStencilOp
-		stencilZPass: "KeepStencilOp", // ZeroStencilOp,	KeepStencilOp,	ReplaceStencilOp,	IncrementStencilOp,	DecrementStencilOp,	IncrementWrapStencilOp,	DecrementWrapStencilOp,	InvertStencilOp
-
-		fog: true,
-		// needsUpdate: true, // Handled internbally
-
-		polygonOffset: true,
-		polygonOffsetFactor: 2, // Integer
-		polygonOffsetUnits: 2,  // Integer
-		precision: "lowp",      // "highp", "mediump" or "lowp"
-		premultipliedAlpha: true,
-		dithering : true,
-		
-		shadowSide: "FrontSide", // BackSide, DoubleSide
-		side: "FrontSide", // BackSide, DoubleSide
-
-		toneMapped: true,
-		vertexColors: false,
-		visible: true,
 
 	});
 	
@@ -100,60 +112,90 @@ export default () => {
 		<div className="info">
 			
 			Color: 
-				<input type="color" value={materialProps.color}
-					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, color: value}); } }
-				/> <span className="show-value">[{materialProps.color}]</span><br />
+				<input type="color" value={materialProps.colors.color}
+					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, colors: {
+						...materialProps.colors,
+						color: value
+					}}); } }
+				/> <span className="show-value">[{materialProps.colors.color}]</span><br />
 
 			reflectivity: 
-				<input value={materialProps.reflectivity} type="range" min="0" max="1" step="0.01"
-					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, reflectivity: parseFloat(value)}); } }
-				/> <span className="show-value">[{materialProps.reflectivity}]</span><br />
+				<input value={materialProps.values.reflectivity} type="range" min="0" max="1" step="0.01"
+					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, values: {
+						...materialProps.values,
+						reflectivity: parseFloat(value)
+					}}); } }
+				/> <span className="show-value">[{materialProps.values.reflectivity}]</span><br />
 
 			refractionRatio: 
-				<input value={materialProps.refractionRatio} type="range" min="0" max="0.99" step="0.01"
-					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, refractionRatio: parseFloat(value)}); } }
-				/> <span className="show-value">[{materialProps.refractionRatio}]</span><br />
+				<input value={materialProps.values.refractionRatio} type="range" min="0" max="0.99" step="0.01"
+					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, values: {
+						...materialProps.values,
+						refractionRatio: parseFloat(value)
+					}}); } }
+				/> <span className="show-value">[{materialProps.values.refractionRatio}]</span><br />
 
 			aoMapIntensity: 
-				<input value={materialProps.aoMapIntensity} type="range" min="0" max="0.99" step="0.01"
-					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, aoMapIntensity: parseFloat(value)}); } }
-				/> <span className="show-value">[{materialProps.aoMapIntensity}]</span><br />
+				<input value={materialProps.values.aoMapIntensity} type="range" min="0" max="0.99" step="0.01"
+					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, values: {
+						...materialProps.values,
+						aoMapIntensity: parseFloat(value)
+					}}); } }
+				/> <span className="show-value">[{materialProps.values.aoMapIntensity}]</span><br />
 
 			lightMapIntensity: 
-				<input value={materialProps.lightMapIntensity} type="range" min="0" max="100" step="1"
-					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, lightMapIntensity: parseFloat(value)}); } }
-				/> <span className="show-value">[{materialProps.lightMapIntensity}]</span><br />
+				<input value={materialProps.values.lightMapIntensity} type="range" min="0" max="100" step="1"
+					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, values: {
+						...materialProps.values,
+						lightMapIntensity: parseFloat(value)
+					}}); } }
+				/> <span className="show-value">[{materialProps.values.lightMapIntensity}]</span><br />
 
 			combine: 
-				<select value={materialProps.combine} onChange={ e => setMaterialProps({ ...materialProps, combine: e.target.value }) }>
+				<select value={materialProps.constants.combine} onChange={ e => setMaterialProps({ ...materialProps, constants: {
+					...materialProps.constants,
+					combine: e.target.value
+				} }) }>
 					<option value="MultiplyOperation">MultiplyOperation</option>
 					<option value="MixOperation">MixOperation</option>
 					<option value="AddOperation">AddOperation</option>
-				</select> <span className="show-value">[{materialProps.combine}]</span><br />
+				</select> <span className="show-value">[{materialProps.constants.combine}]</span><br />
 
 			wireframe: 
-				<input checked={materialProps.wireframe} type="checkbox"
-					onChange={ e => setMaterialProps({...materialProps, wireframe: e.target.checked }) }
-				/> <span className="show-value">[{materialProps.wireframe + ''}]</span><br />
+				<input checked={materialProps.values.wireframe} type="checkbox"
+					onChange={ e => setMaterialProps({...materialProps, values: {
+						...materialProps.values,
+						wireframe: e.target.checked
+					} }) }
+				/> <span className="show-value">[{materialProps.values.wireframe + ''}]</span><br />
 
 			wireframeLinecap: 
-				<select value={materialProps.combine} onChange={ e => setMaterialProps({ ...materialProps, wireframeLinecap: e.target.value }) }>
+				<select value={materialProps.values.combine} onChange={ e => setMaterialProps({ ...materialProps, values: {
+					...materialProps.values,
+					wireframeLinecap: e.target.value
+				} }) }>
 					<option value="round">round</option>
 					<option value="butt">butt</option>
 					<option value="square">square</option>
-				</select> <span className="show-value">[{materialProps.wireframeLinecap}]</span><br />
+				</select> <span className="show-value">[{materialProps.values.wireframeLinecap}]</span><br />
 
 			wireframeLinejoin: 
-				<select value={materialProps.combine} onChange={ e => setMaterialProps({ ...materialProps, wireframeLinejoin: e.target.value }) }>
+				<select value={materialProps.values.combine} onChange={ e => setMaterialProps({ ...materialProps, values: {
+					...materialProps.values,
+					wireframeLinejoin: e.target.value
+				} }) }>
 					<option value="round">round</option>
 					<option value="butt">butt</option>
 					<option value="square">square</option>
-				</select> <span className="show-value">[{materialProps.wireframeLinejoin}]</span><br />
+				</select> <span className="show-value">[{materialProps.values.wireframeLinejoin}]</span><br />
 
 			wireframeLinewidth: 
-				<input value={materialProps.wireframeLinewidth} type="range" min="0" max="20" step="0.01"
-					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, wireframeLinewidth: parseFloat(value)}); } }
-				/> <span className="show-value">[{materialProps.wireframeLinewidth}]</span><br />
+				<input value={materialProps.values.wireframeLinewidth} type="range" min="0" max="20" step="0.01"
+					onChange={ ({target: {value}}) => {	setMaterialProps({...materialProps, values: {
+						...materialProps.values,
+						wireframeLinewidth: parseFloat(value)
+					}}); } }
+				/> <span className="show-value">[{materialProps.values.wireframeLinewidth}]</span><br />
 
 			<CommonMaterialPropertiesForm state={materialProps} setState={setMaterialProps} />
 

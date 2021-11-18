@@ -4,6 +4,7 @@ import { Tube } from "@orbits/engine";
 export default () => <>
 	
 	<Tube
+		// Geometry properties:
 		path={[
 			[1,1, 1],
 			[100,100, 0],
@@ -14,7 +15,9 @@ export default () => <>
 		radialSegments={12}
 		radius={10}
 		closed={true}
-		color={"#999999"}
+
+		// Material:
+		material={{type: "MeshPhongMaterial", colors: {color: "#999999"}}}
 	/>
 
 	<div className="links-block">

@@ -4,11 +4,14 @@ import { Plane } from "@orbits/engine";
 export default () => <>
 	
 	<Plane
+		// Geometry properties:
 		width={50}
 		height={90}
 		widthSegments={10}
 		heightSegments={20}
-		color={"#999999"}
+
+		// Material:
+		material={{type: "MeshPhongMaterial", colors: {color: "#999999"}}}
 	/>
 	
 	<div className="links-block">

@@ -6,14 +6,20 @@ export default () => <>
 	<Box
 		cursor="/images/cursor-full.png"
 		size={[50, 25, 25]}
-		color={"#999999"}
+		material={{
+			type:  "MeshBasicMaterial",
+			colors: { color: "#999999" },
+		}}
 	/>
 
 	<Box
 		position={{x:55, y: 0, z: 0}}
 		cursor="/images/cursor-green.png"
 		size={[50, 25, 25]}
-		color={"#999999"}
+		material={{
+			type:  "MeshBasicMaterial",
+			colors: { color: "#999999" },
+		}}
 	/>
 
 	<div className="links-block">

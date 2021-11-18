@@ -13,7 +13,10 @@ export default () => {
 		<Box
 			scale={{x: scaleX, y: scaleY, z: scaleZ}}
 			size={[50, 25, 25]}
-			color={"#999999"}
+			material={{
+				type: "MeshBasicMaterial",
+				colors: { color: "#999999" }
+			}}
 		/>
 
 		<div className="info">

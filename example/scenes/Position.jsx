@@ -13,7 +13,10 @@ export default () => {
 		<Box
 			position={{x: posX, y: posY, z: posZ}}
 			size={[50, 25, 25]}
-			color={"#999999"}
+			material={{
+				type: "MeshBasicMaterial",
+				colors: { color: "#999999" }
+			}}
 		/>
 
 

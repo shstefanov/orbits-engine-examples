@@ -1,32 +1,29 @@
 import React, { useState } from "react";
-import { Line } from "@orbits/engine";
+import { Points } from "@orbits/engine";
 
 export default () => {
 
 	const [ posX, setposX ] = useState(0);
 	const [ posY, setposY ] = useState(0);
 	const [ posZ, setposZ ] = useState(0);
-	const [ color, setColor ] = useState("#ffffff");
-	const [linewidth, setLineWidth] = useState(1);
 
 	return <>
 		
-		<Line
+		<Points
 			// Geometry properties:
 			points={[
-				[ 50, 25, 25 ],
-				[ posX,  posY,  posZ ],
-				[-50, 25, 25 ],
+				[100, 0, 0],
+				[posX, posY, posZ],
+				[0, 100, 0],
 			]}
-
-
 			// Material:
 			material={{
-				type: "LineBasicMaterial",
-				colors: { color: color },
-				values: { linewidth: linewidth }
+				type: "PointsMaterial",
+				colors: { color: "#ff0000" },
+				values: { size: 10 },
 			}}
-
+			// Mesh properties:
+			position={ { x: 0, y: 0, z: 0} }
 		/>
 
 
@@ -44,21 +41,10 @@ export default () => {
 				onChange={ ({target: {value}}) => { setposZ(parseInt(value)) } }
 			/>
 
-			<br />
-
-			Color: <input type="color" value={color}
-				onChange={ ({target: {value}}) => { setColor(value)} }
-			/>
-
-			Line width: <input min="0.5" max="5" step="0.001" type="range" value={linewidth}
-				onChange={ ({target: {value}}) => { setLineWidth(parseInt(value)); } }
-			/>
-
-
 		</div>
 
 		<div className="links-block">
-			<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/scenes/geometries/LineGeometry.jsx"> Source </a>
+			<a href="https://github.com/shstefanov/orbits-engine-examples/blob/master/example/scenes/geometries/PointsGeometry.jsx"> Source </a>
 		</div>
 
 	</>

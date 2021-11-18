@@ -44,6 +44,7 @@ export default () => <>
 		<hr/>
 		<h2>Materials:</h2>
 
+		<li><Link className="nowrap" to="/points-material">        PointsMaterial       </Link></li>
 		<li><Link className="nowrap" to="/line-basic-material">    LineBasicMaterial    </Link></li>
 		<li><Link className="nowrap" to="/line-dashed-material">   LineDashedMaterial   </Link></li>
 		<li><Link className="nowrap" to="/mesh-basic-material">    MeshBasicMaterial    </Link></li>
@@ -96,6 +97,8 @@ export default () => <>
 
 		<hr/>
 		<h2>Geometries:</h2>
+		<li><Link className="nowrap" to="/point-geometry">        PointGeometry        </Link> </li>
+		<li><Link className="nowrap" to="/points-geometry">       PointsGeometry       </Link> </li>
 		<li><Link className="nowrap" to="/line-geometry">         LineGeometry         </Link> </li>
 		<li><Link className="nowrap" to="/box-geometry">          BoxGeometry          </Link> </li>
 		<li><Link className="nowrap" to="/circle-geometry">       CircleGeometry       </Link> </li>
@@ -116,6 +119,7 @@ export default () => <>
 		<li><Link className="nowrap" to="/torusknot-geometry">    TorusKnotGeometry    </Link> </li>
 		<li><Link className="nowrap" to="/tube-geometry">         TubeGeometry         </Link> </li>
 		<li><Link className="nowrap" to="/text-geometry">         TextGeometry         </Link> </li>
+		<li><Link className="nowrap" to="/sprite">                SpriteGeometry       </Link> </li>
 
 
 

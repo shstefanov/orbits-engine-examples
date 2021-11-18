@@ -19,7 +19,10 @@ export default () => {
 
 		<Box
 			size={[50, 25, 25]}
-			color={"#aaaaaa"}
+			material={{
+				type:   "MeshBasicMaterial",
+				colors: { color: "#aaaaaa" },
+			}}
 			onMouseOver={   e => { setMouseOver("*"); setMouseOut("");  } }
 			onMouseOut={    e => { setMouseOver("");  setMouseOut("*"); } }
 			onMouseDown={   e => { setMouseDown("*"); setMouseUp("");   } }

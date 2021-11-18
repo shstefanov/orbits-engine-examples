@@ -3,10 +3,8 @@ import { Box } from "@orbits/engine";
 
 export default () => <>
 
-
 	<Box
 		size={ [ 50, 25, 12.5 ] }
-		material={ { color: "#aaaa00" } }
 	/>
 
 	<div className="links-block">

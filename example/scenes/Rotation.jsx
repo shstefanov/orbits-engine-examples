@@ -13,7 +13,10 @@ export default () => {
 		<Box
 			rotation={{x: rotX, y: rotY, z: rotZ}}
 			size={[50, 25, 25]}
-			color={"#999999"}
+			material={{
+				type: "MeshBasicMaterial",
+				colors: { color: "#999999" }
+			}}
 		/>
 		<div className="info">
 			X: <input min="0" max={200 * Math.PI} step="1" type="range" value={rotX * 100}

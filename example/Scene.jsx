@@ -4,19 +4,33 @@ import { OrbitsScene, AmbientLight, PointLight } from "@orbits/engine";
 
 import SkyBox from "./SkyBox";
 
+import * as THREE from "three";
+
 
 export default ({children}) => <OrbitsScene
 	defaultCursor="/images/cursor.png"
 	renderInterval={10} // optional, default: 40 (ms)
 
-	rotation={{x: Math.PI / 2}}
-	
 	// onUpdateControls={ e => console.log("onUpdateControls", e.target.distance) }
 	cameraControls={{
 		distance: 150,
 		polarAngle: Math.PI / 2,
 		azimuthAngle: 0,
 		zoom: 0,
+	}}
+
+	rendererOptions={{
+		width:           window.innerWidth,
+		height:          window.innerHeight,
+		alpha:           true,
+		autoclear:       false,
+		clearColor:      0x000000,
+		clearColorAlpha: 0.5,
+		antialias:       true,
+		shadowMap: {
+		  enabled: true,
+		  type: THREE.PCFSoftShadowMap
+		}
 	}}
 
 	// TODO - fix issue

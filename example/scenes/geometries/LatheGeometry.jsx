@@ -10,11 +10,14 @@ for(let i = 0; i < 100; i+=0.01){
 export default () => <>
 	
 	<Lathe
+		// Geometry properties:
 		shape={waves}
 		segments={32}
 		phiStart={0}
 		phiLength={Math.PI * 2 * 0.9}
-		color={"#999999"}
+
+		// Material:
+		material={{type: "MeshPhongMaterial", colors: {color: "#999999"}}}
 	/>
 
 	<div className="links-block">

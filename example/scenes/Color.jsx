@@ -10,6 +10,10 @@ export default () => {
 		<Box
 			color={color}
 			size={[50, 25, 25]}
+			material={{
+				type: "MeshBasicMaterial",
+				colors: { color }
+			}}
 		/>
 		
 		<div className="info">

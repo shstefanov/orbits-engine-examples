@@ -4,6 +4,7 @@ import { Cylinder } from "@orbits/engine";
 export default () => <>
 	
 	<Cylinder
+		// Geometry properties:
 		radiusTop={20}
 		radiusBottom={30}
 		height={50}
@@ -13,7 +14,7 @@ export default () => <>
 		thetaStart={0}
 		thetaLength={Math.PI * 2 * 0.95}
 	    
-	    color={"#999999"}
+	    material={{type: "MeshPhongMaterial", colors: {color: "#999999"}}}
 	/>
 
 	<div className="links-block">

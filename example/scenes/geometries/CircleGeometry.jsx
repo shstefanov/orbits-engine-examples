@@ -4,9 +4,12 @@ import { Circle } from "@orbits/engine";
 export default () => <>
 	
 	<Circle
+		// Geometry Properties:
 		radius={30}
 		segments={50}
-		color={"#999999"}
+
+		// Material:
+		material={{type: "MeshPhongMaterial", colors: {color: "#999999"}}}
 	/>
 	
 	<div className="links-block">

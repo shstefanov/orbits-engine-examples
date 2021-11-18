@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Line } from "@orbits/engine";
 
+import CommonMaterialPropertiesForm from "./_CommonMaterialPropertiesForm.jsx";
+
 export default () => {
 
 	const [ color, setColor ] = useState("#ffffff");
@@ -9,57 +11,134 @@ export default () => {
 	const [ dashSize, setDashSize ] = useState(20);
 	const [ gapSize, setGapSize ]   = useState(33);
 
+	const [ materialProps, setMaterialProps ] = useState({
+				
+		type: "LineDashedMaterial",
+
+		colors: {
+			color:    "#008888",
+		},
+
+		constants: {
+			blending: "NormalBlending", // NoBlending, NormalBlending, AdditiveBlending, SubtractiveBlending, MultiplyBlending, CustomBlending
+			blendDst: "OneMinusSrcAlphaFactor",   // ZeroFactor,	OneFactor,	SrcColorFactor,	OneMinusSrcColorFactor,	SrcAlphaFactor,	OneMinusSrcAlphaFactor,	DstAlphaFactor,	OneMinusDstAlphaFactor,	DstColorFactor,	OneMinusDstColorFactor
+			blendSrc: "SrcAlphaFactor", // ZeroFactor,	OneFactor,	SrcColorFactor,	OneMinusSrcColorFactor,	SrcAlphaFactor,	OneMinusSrcAlphaFactor,	DstAlphaFactor,	OneMinusDstAlphaFactor,	DstColorFactor,	OneMinusDstColorFactor,	SrcAlphaSaturateFactor
+			blendSrcAlpha: "SrcAlphaFactor", // ZeroFactor,	OneFactor,	SrcColorFactor,	OneMinusSrcColorFactor,	SrcAlphaFactor,	OneMinusSrcAlphaFactor,	DstAlphaFactor,	OneMinusDstAlphaFactor,	DstColorFactor,	OneMinusDstColorFactor,	SrcAlphaSaturateFactor
+			depthFunc: "LessEqualDepth", // NeverDepth, AlwaysDepth, EqualDepth, LessDepth, LessEqualDepth, GreaterEqualDepth, GreaterDepth, NotEqualDepth,
+			stencilFunc: "AlwaysStencilFunc", // NeverStencilFunc, LessStencilFunc, EqualStencilFunc, LessEqualStencilFunc, GreaterStencilFunc, NotEqualStencilFunc, GreaterEqualStencilFunc, AlwaysStencilFunc, LineBasicMaterial
+			stencilFail: "ZeroStencilOp",  // ZeroStencilOp,	KeepStencilOp,	ReplaceStencilOp,	IncrementStencilOp,	DecrementStencilOp,	IncrementWrapStencilOp,	DecrementWrapStencilOp,	InvertStencilOp
+			stencilZFail: "ZeroStencilOp", // ZeroStencilOp,	KeepStencilOp,	ReplaceStencilOp,	IncrementStencilOp,	DecrementStencilOp,	IncrementWrapStencilOp,	DecrementWrapStencilOp,	InvertStencilOp
+			stencilZPass: "KeepStencilOp", // ZeroStencilOp,	KeepStencilOp,	ReplaceStencilOp,	IncrementStencilOp,	DecrementStencilOp,	IncrementWrapStencilOp,	DecrementWrapStencilOp,	InvertStencilOp
+			shadowSide: "FrontSide", // BackSide, DoubleSide
+			side: "FrontSide", // BackSide, DoubleSide
+		},
+
+		values: {
+			linewidth: 1,
+			scale: 1,
+			dashSize: 20,
+			gapSize: 20,
+
+
+			// Common for all materials
+			// https://threejs.org/docs/?q=MeshBasic#api/en/materials/Material
+
+			transparent: false,
+			opacity: 0.95,
+			alphaTest: 0.5, //   0 - 1
+			alphaToCoverage: 0.2, // Float
+			
+
+			blendDstAlpha: 2,
+			blendEquation: 2,
+			blendEquationAlpha: 2,
+			clipIntersection: false,
+			clippingPlanes: [], // TODO - array of THREE.Plane objects
+			clipShadows: true,
+			colorWrite: true,
+			depthTest: true,
+			depthWrite: true,
+			stencilWrite: true,
+			stencilWriteMask: 0xff, // bitmask
+			stencilRef: 0, // Integer
+			stencilFuncMask: 0xff, // bitmask
+
+
+			fog: true,
+			// needsUpdate: true, // Handled internbally
+
+			polygonOffset: true,
+			polygonOffsetFactor: 2, // Integer
+			polygonOffsetUnits: 2,  // Integer
+			precision: "lowp",      // "highp", "mediump" or "lowp"
+			premultipliedAlpha: true,
+			dithering : true,
+			
+
+			toneMapped: true,
+			vertexColors: false,
+			visible: true,
+
+		},
+	});
+
+
 	return <>
 
 		<Line
-			
 			points={[
 				[ 50, 25, 25 ],
 				[  0,  0,  0 ],
 				[-50, 25, 25 ],
 			]}
-
-			material={{
-				type:      "LineDashedMaterial",
-				color:     color,
-				linewidth: linewidth,
-				scale:     scale,
-				dashSize:  dashSize,
-				gapSize:   gapSize,
-			}}
-
+			material={materialProps}
 		/>
 
 
 
 
 		<div className="info">
-			Color: [{color}]
-			<input type="color" value={color}
-				onChange={ ({target: {value}}) => setColor(value) }
-			/>
+			color:
+			<input type="color" value={materialProps.colors.color}
+				onChange={ ({target: {value}}) => setMaterialProps({...materialProps, colors: {
+					...materialProps.colors,
+					color: value,
+				}}) }
+			/> <span className="show-value">[{materialProps.colors.color}]</span><br />
 
-			Line width: [{linewidth}]
-			<input min="0.1" max="10" step="0.001" type="range" value={linewidth}
-				onChange={ ({target: {value}}) => setLinewidth(parseFloat(value)) }
-			/>
+			linewidth:
+			<input min="0.1" max="10" step="0.001" type="range" value={materialProps.values.linewidth}
+				onChange={ ({target: {value}}) => setMaterialProps({...materialProps, values: {
+					...materialProps.values,
+					linewidth: parseFloat(value),
+				}}) }
+			/> <span className="show-value">[{materialProps.values.linewidth}]</span><br />
 
-			Scale: [{scale}]
-			<input min="0.1" max="100" step="0.001" type="range" value={scale}
-				onChange={ ({target: {value}}) => setScale(parseFloat(value)) }
-			/>
+			scale:
+			<input min="0.1" max="10" step="0.001" type="range" value={materialProps.values.scale}
+				onChange={ ({target: {value}}) => setMaterialProps({...materialProps, values: {
+					...materialProps.values,
+					scale: parseFloat(value),
+				}}) }
+			/> <span className="show-value">[{materialProps.values.linewidth}]</span><br />
 
-			<br />
+			dashSize:
+			<input min="0.1" max="20" step="0.001" type="range" value={materialProps.values.dashSize}
+				onChange={ ({target: {value}}) => setMaterialProps({...materialProps, values: {
+					...materialProps.values,
+					dashSize: parseFloat(value),
+				}}) }
+			/> <span className="show-value">[{materialProps.values.dashSize}]</span><br />
 
-			Dash Size: [{dashSize}]
-			<input min="0.1" max="100" step="0.001" type="range" value={dashSize}
-				onChange={ ({target: {value}}) => setDashSize(parseFloat(value)) }
-			/>
+			gapSize: 
+			<input min="0.1" max="20" step="0.001" type="range" value={materialProps.values.gapSize}
+				onChange={ ({target: {value}}) => setMaterialProps({...materialProps, values: {
+					...materialProps.values,
+					gapSize: parseFloat(value),
+				}}) }
+			/> <span className="show-value">[{materialProps.values.gapSize}]</span><br />
 
-			Gap Size: [{gapSize}]
-			<input min="0.1" max="10" step="0.001" type="range" value={gapSize}
-				onChange={ ({target: {value}}) => setGapSize(parseFloat(value)) }
-			/>
+			<CommonMaterialPropertiesForm state={materialProps} setState={setMaterialProps} />
 
 		</div>
 

@@ -8,7 +8,6 @@ import {
 
 import Basics           from "./scenes/Basics"
 
-
 import LineBasicMaterial from "./scenes/materials/LineBasicMaterial.jsx"
 import LineDashedMaterial from "./scenes/materials/LineDashedMaterial.jsx"
 import MeshBasicMaterial from "./scenes/materials/MeshBasicMaterial.jsx"
@@ -52,6 +51,8 @@ import Fog  from "./scenes/Fog"
 
 import ObjLoader  from "./scenes/ObjLoader"
 
+import PointGeometry from "./scenes/geometries/PointGeometry"
+import PointsGeometry from "./scenes/geometries/PointsGeometry"
 import LineGeometry from "./scenes/geometries/LineGeometry"
 import BoxGeometry from "./scenes/geometries/BoxGeometry"
 import CircleGeometry from "./scenes/geometries/CircleGeometry"
@@ -72,6 +73,7 @@ import TorusGeometry from "./scenes/geometries/TorusGeometry"
 import TorusKnotGeometry from "./scenes/geometries/TorusKnotGeometry"
 import TubeGeometry from "./scenes/geometries/TubeGeometry"
 import TextGeometry from "./scenes/geometries/TextGeometry"
+import SpriteGeometry from "./scenes/geometries/SpriteGeometry"
 
 import Audio from "./scenes/Audio"
 
@@ -130,6 +132,12 @@ export default ({children}) => <Router>
 
 		<Route path="/obj-loader"><ObjLoader /> </Route>
 
+
+
+
+
+		<Route path="/point-geometry">         <PointGeometry />        </Route>
+		<Route path="/points-geometry">        <PointsGeometry />       </Route>
 		<Route path="/line-geometry">          <LineGeometry />         </Route>
 		<Route path="/box-geometry">           <BoxGeometry />          </Route>
 		<Route path="/circle-geometry">        <CircleGeometry />       </Route>
@@ -150,6 +158,7 @@ export default ({children}) => <Router>
 		<Route path="/torusknot-geometry">     <TorusKnotGeometry />    </Route>
 		<Route path="/tube-geometry">          <TubeGeometry />         </Route>
 		<Route path="/text-geometry">          <TextGeometry />         </Route>
+		<Route path="/sprite">                 <SpriteGeometry />       </Route>
 
 		<Route path="/cursor">                 <Cursor />               </Route>
 

@@ -4,6 +4,7 @@ import { Shape } from "@orbits/engine";
 export default () => <>
 	
 	<Shape
+		// Geometry properties:
 		shape={[
 			["move",        10, 10 ],
 			["line",        10, 0  ],
@@ -16,7 +17,9 @@ export default () => <>
 			],
 		]}
 		curveSegments={20}
-		color={"#999999"}
+
+		// Material: 
+		material={{type: "MeshPhongMaterial", colors: {color: "#999999"}}}color={"#999999"}
 	/>
 	
 	<div className="links-block">
