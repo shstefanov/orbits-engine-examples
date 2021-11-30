@@ -15,7 +15,7 @@
   "author": "Stefan Stefanov <s.h.stefanov@mail.bg>",
   "license": "ISC",
   "dependencies": {
-    "@orbits/engine": "git+https://github.com/shstefanov/orbits-engine.git#master",
+    "@orbits/engine": "^1.0.0",
     "camera-controls": "^1.30.0",
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
