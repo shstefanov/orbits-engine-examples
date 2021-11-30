@@ -81,6 +81,8 @@ import Cursor from "./scenes/Cursor"
 
 import CameraControls from "./scenes/CameraControls"
 
+import Timer from "./scenes/Timer"
+
 
 
 export default ({children}) => <Router>
@@ -110,6 +112,7 @@ export default ({children}) => <Router>
 		<Route path="/sprite-material">        <SpriteMaterial />       </Route>
 
 		<Route path="/camera-controls">        <CameraControls />       </Route>
+		<Route path="/Timer">        <Timer />       </Route>
 
 		<Route path="/mouse-events"> <MouseEvents /> </Route>
 		<Route path="/hover">        <Hover       /> </Route>

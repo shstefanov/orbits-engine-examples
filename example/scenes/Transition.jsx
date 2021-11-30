@@ -16,7 +16,7 @@ export default () => {
 				duration: 12000,
 				timing_function: "EASE_IN_SINE",
 				from: {
-					material: { values: {opacity: 0.2,}, colors: {color: "#00aaaa"}}, 
+					material: { values: {opacity: 0.2,}, colors: {color: "#00aaaa"}},
 					position: { x: 0, y: 0, z: 0 },
 					rotation: { x: 0, y: 0, z: 0 },
 					scale:    { x: 1, y: 1, z: 1 },
@@ -29,7 +29,6 @@ export default () => {
 				}
 			})}
 			size={[50, 25, 25]}
-			color={"#999999"}
 		/>
 
 		<div className="links-block">

@@ -8,7 +8,6 @@ export default () => {
 	return <>
 		
 		<Box
-			color={color}
 			size={[50, 25, 25]}
 			material={{
 				type: "MeshBasicMaterial",

@@ -29,6 +29,10 @@ export default () => <>
 		<li><Link className="nowrap" to="/camera-controls">        Controls scope       </Link></li>
 
 		<hr/>
+		<h2>Timer:</h2>
+		<li><Link className="nowrap" to="/timer">        Timer       </Link></li>
+
+		<hr/>
 		<h2>Cursor:</h2>
 		<li><Link className="nowrap" to="/cursor">                Cursor               </Link> </li>
 
