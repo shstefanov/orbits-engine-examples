@@ -36,29 +36,3 @@ https://opengameart.org/content/background-space-track
 https://opengameart.org/content/ui-sounds
 https://opengameart.org/content/rockbreaking
 
-
-
-
-
-
-
-
-
-
-
-
-DONE:
-+LineGeometry
-+<CameraControls ... />
-+<Point ...>
-+<Points points=...>
-+PointsMaterial
-+RawShaderMaterial
-+ShadowMaterial
-
-TODO:
-
-ShaderMaterial
-SpriteMaterial
-<Sprite ...>
-<Timer ... />
